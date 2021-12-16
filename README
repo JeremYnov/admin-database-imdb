@@ -1,0 +1,7 @@
+Créer un dossier ./csv 
+
+Dans le dossier l'architecture sera la suivante : 
+./csv
+    ./csv_name
+        csv_name.tsv
+    ...
