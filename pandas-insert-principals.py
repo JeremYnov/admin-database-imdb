@@ -3,16 +3,10 @@ from pymongo import MongoClient
 import pandas as pd
 import db_config
 
-# connexion à la bdd
-# client = MongoClient('localhost', 27017)
-
-# connexion à la database
-# database = client['tp-imdb']
-
 # creation des collections
 collection_principals = db_config.database['principals']
 
-# récuperation collection
+# recuperation collection
 principals_db = db_config.database.get_collection("principals")
 
 # supprime tout au lancement du script
