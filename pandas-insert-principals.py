@@ -21,11 +21,11 @@ count = 1
 principals_df = pd.read_csv('csv/name-basics/name-basics.tsv',sep='\t', skiprows=count, nrows=1000)
 
 while not principals_df.empty:
-    principals_df = pd.read_csv('csv/name-basics/name-basics.tsv',sep='\t', skiprows=count + 1, nrows=10, header = None)
+    principals_df = pd.read_csv('csv/name-basics/name-basics.tsv',sep='\t', skiprows=count + 1, nrows=100000, header = None)
     principals_df.columns = ["nconst", "primaryName", "birthYear", "deathYear","primaryProfession","knownForTitles"]
+    principals_df = principals_df.fillna('no employment')
     principals_df['primaryProfession'] = principals_df['primaryProfession'].apply(lambda x : x.split(','))
     principals_df['knownForTitles'] = principals_df['knownForTitles'].apply(lambda x : x.split(','))
     principals_df_json = principals_df.to_dict(orient='records')
     principals_db.insert_many(principals_df_json)
-    print(principals_df)
-    count += 10
+    count += 100000
