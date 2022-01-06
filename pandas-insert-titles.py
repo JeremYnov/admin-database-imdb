@@ -13,7 +13,7 @@ prod_db = db_config.database.get_collection("production")
 # supprime tout au lancement du script
 prod_db.delete_many({})
 
-count = 1
+count = 0
 prod_df = pd.read_csv('csv/title-basics/title-basics.tsv',sep='\t', skiprows=count, nrows=db_config.nrows)
 
 while not prod_df.empty:
