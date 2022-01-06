@@ -15,7 +15,7 @@ with open('csv/title-ratings/title-ratings.tsv') as title_ratings:
         for count, row in enumerate(csv_reader): 
             if count != 0:
                 requests.append(UpdateOne({'tconst' : row[0]}, {'$set' : {'averageRating':float(row[1]), 'numVotes':int(row[2])}}))
-                if count % 100000 == 0:
+                if count % 100000 == 0 or nbLines - count < 100000 :
                     bulk = prod_db.bulk_write(requests)
                     requests = []
-            bar()             
+            bar()            
