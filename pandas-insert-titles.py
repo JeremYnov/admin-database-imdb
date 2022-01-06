@@ -1,5 +1,3 @@
-from pandas.core.arrays import string_
-from pymongo import MongoClient
 import pandas as pd
 import db_config
 
